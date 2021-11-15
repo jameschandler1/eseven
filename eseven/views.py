@@ -7,6 +7,8 @@ from django.views.generic.detail import DetailView
 #import all models
 from .models import *
 
+
+
 # Create your views here.
 class HomeView(TemplateView):
     template_name = 'home.html'
@@ -23,6 +25,7 @@ class ProductListView(TemplateView):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'product_detail.html'
+    
 
 # def add_to_cart(request, product_id, code):
 #     product = get_object_or_404(Product, pk=product_id)
@@ -43,16 +46,10 @@ class CartView(TemplateView):
         print(context)
         return context
 
-    def remove_from_cart(request, products, code):
-        cart, created = Cart.objects.delete(products=products, code=code)
-        if created == True:
-            cart.quantity = 1
-            cart.save()
-        else:
-            cart.quantity -= 1
-            cart.save()
-        return render(request, 'cart.html')
+
 
 class ContactView(TemplateView):
     template_name = 'contact.html'
+
+
 

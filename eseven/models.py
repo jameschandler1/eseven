@@ -2,10 +2,10 @@ from django.db import models
 # Create your models here.
 
 class Product(models.Model):
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
-    image = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    image = models.ImageField(upload_to='products/')
+    price = models.FloatField()
     
 class Order(models.Model):
     transaction_id = models.CharField(max_length=255, null=True)
