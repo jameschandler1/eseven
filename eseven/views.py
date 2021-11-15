@@ -30,6 +30,11 @@ class ProductListView(TemplateView):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'product_detail.html'
+
+    def get_image(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['image'] = self.Product.objects.filter('image')
+        return context
     
 class CartView(TemplateView):
     template_name = 'cart.html'

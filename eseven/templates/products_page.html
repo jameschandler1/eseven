@@ -3,8 +3,8 @@
 {% for p in products %}
 
 <div class="col-md-4">
-    <div class="thumbnail">
-        <img src="{{ p.image }}" alt="{{ p.name }}" height='200' width='200'>
+    <div class="card">
+        <img class='img-picture'src="{{ p.image }}" alt="{{ p.name }}" />
         <div class="caption">
             <h3>{{ p.name }}</h3>
             <p>{{ p.description }}</p>
