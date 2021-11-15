@@ -1,10 +1,14 @@
 from django.db import models
+import os
 # Create your models here.
+
+def get_image_path(instance, filename):
+    return os.path.join('media', str(instance.id), filename)
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
-    image = models.ImageField(upload_to='media/')
+    image = models.ImageField(upload_to=get_image_path)
     price = models.FloatField()
     
 class Order(models.Model):
