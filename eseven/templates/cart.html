@@ -1,7 +1,7 @@
 {% extends 'base.html' %}{% block content %}
     
     {% for p in products %}
-    
+    <a href="{% url 'remove_from_cart' args=(item.book.id,) %}">Remove item</a>
     {% endfor %}
     
 {% endblock %}

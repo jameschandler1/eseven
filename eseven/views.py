@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib import messages
 #import  generic TemplateView
 from django.views.generic import TemplateView
 #import DetailView
@@ -22,7 +23,16 @@ class ProductListView(TemplateView):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'product_detail.html'
-    print(Product.objects.filter(id=1))
+
+# def add_to_cart(request, product_id, code):
+#     product = get_object_or_404(Product, pk=product_id)
+#     cart, created = Cart.objects.get_or_create(code=code, active=True)
+#     order, created = OrderItem.objects.get_or_create(cart=cart, product=product)
+#     order.quantity += 1
+#     order.save()
+#     messages.success(request, 'Item added to cart')
+    
+#     return redirect('cart')
 
 class CartView(TemplateView):
     template_name = 'cart.html'
@@ -33,5 +43,16 @@ class CartView(TemplateView):
         print(context)
         return context
 
+    def remove_from_cart(request, products, code):
+        cart, created = Cart.objects.delete(products=products, code=code)
+        if created == True:
+            cart.quantity = 1
+            cart.save()
+        else:
+            cart.quantity -= 1
+            cart.save()
+        return render(request, 'cart.html')
+
 class ContactView(TemplateView):
     template_name = 'contact.html'
+
