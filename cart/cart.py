@@ -71,7 +71,7 @@ class Cart(object):
     def decrement(self, product):
         for key, value in self.cart.items():
             if key == str(product.id):
-
+                print(product)
                 value['quantity'] = value['quantity'] - 1
                 if(value['quantity'] < 1):
                     return redirect('cart:cart_detail')
