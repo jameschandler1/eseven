@@ -3,7 +3,7 @@ import os
 # Create your models here.
 
 def get_image_path(instance, filename):
-    return os.path.join('static', str(instance.id), filename)
+    return os.path.join('media', str(instance.id), filename)
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
