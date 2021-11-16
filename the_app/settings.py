@@ -27,12 +27,14 @@ SECRET_KEY = 'django-insecure-q9o!l^g3p*#dk!x&iqn977%d2eizbb#lg!-08$x-29+l&$pe8v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = 'False'
+DEBUG = True
 ALLOWED_HOSTS = ['localhost', 'e7vintage.herokuapp.com']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'eseven',
     'cart',
-    'django.contrib.staticfiles',
 ]
+
+
 
 CART_SESSION_ID = 'cart'
 
@@ -91,7 +94,7 @@ DATABASES = {
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 import django_heroku
 django_heroku.settings(locals())
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -126,22 +129,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = [
-#     ,
-# ]
-
-# Base url to serve media files 
-MEDIA_URL = '/media/'
-
-# Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -161,3 +149,20 @@ EMAIL_USER=''
 EMAIL_PASSWORD=''
 EMAIL_USE_TLS = False
 EMAIL_HOSTS='https://e7vintage.herokuapp.com'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = [
+#     ,
+# ]
+
+# Base url to serve media files 
+MEDIA_URL = '/media/'
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
