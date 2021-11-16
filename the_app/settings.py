@@ -148,7 +148,7 @@ EMAIL_PORT = '1025'
 EMAIL_USER=''
 EMAIL_PASSWORD=''
 EMAIL_USE_TLS = False
-EMAIL_HOSTS='https://e7vintage.herokuapp.com'
+
 
 
 
