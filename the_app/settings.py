@@ -92,9 +92,9 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-import django_heroku
-django_heroku.settings(locals())
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# import django_heroku
+# django_heroku.settings(locals())
 
 
 # Password validation
@@ -160,3 +160,8 @@ STATICFILES_DIRS = [
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51JrqBKLnCPQsAwkmY7b7YnaGTDamtmJR7LVePVaAxzH14uFBaPFJGS2bW5w7WmqdUhl01n2n91hFjki28rUtoEpU00OH6luZEl'
+STRIPE_SECRET_KEY = 'sk_test_51JrqBKLnCPQsAwkmIEeGBAIbpSM7fQrzLXuWvU3O3Lehti1yz0HcsRBhxhtdqMQmhwsrjKuwJtfLZSE5SUi0ubXo00DpQ7IQBs'
+
+STRIPE_ENDPOINT_SECRET = 'whsec_dPGtPrDnFYBN0zQpY3ESPmFJCsD2PM4B' 
