@@ -3,6 +3,9 @@ import os
 # Create your models here.
 
 def get_image_path(instance, filename):
+    print(str(instance.id))
+    print(filename)
+    print(instance.id)
     return os.path.join('media', str(instance.id), filename)
 
 class Product(models.Model):
