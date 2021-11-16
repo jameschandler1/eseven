@@ -16,7 +16,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -90,9 +90,9 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-import django_heroku
-django_heroku.settings(locals())
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# import django_heroku
+# django_heroku.settings(locals())
 
 
 # Password validation
@@ -149,20 +149,16 @@ EMAIL_PASSWORD=''
 EMAIL_USE_TLS = False
 EMAIL_HOSTS='https://e7vintage.herokuapp.com'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = [
-#     ,
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
-# Base url to serve media files 
-MEDIA_URL = '/media/'
 
-# Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
