@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'eseven',
-    'cart'
+    'cart',
     'django.contrib.staticfiles',
 ]
 
