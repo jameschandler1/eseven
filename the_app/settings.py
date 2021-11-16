@@ -90,9 +90,9 @@ DATABASES = {
     }
 }
 
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-# import django_heroku
-# django_heroku.settings(locals())
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+import django_heroku
+django_heroku.settings(locals())
 
 
 # Password validation
@@ -151,7 +151,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    
+
 ]
 
 # MEDIA_URL = '/media/'
