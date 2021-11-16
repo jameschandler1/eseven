@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'eseven',
     'cart',
+    
     'django.contrib.staticfiles',
+    'payments.apps.PaymentsConfig',
 ]
 
 CART_SESSION_ID = 'cart'

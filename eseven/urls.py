@@ -4,6 +4,7 @@ from . views import *
 from cart import views
 from django.conf import settings
 from django.conf.urls.static import static
+from payments import views
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -17,4 +18,5 @@ urlpatterns = [
     path('cart/item_decrement/<int:id>/', views.item_decrement, name='item_decrement'),
     path('cart/cart_clear/', views.cart_clear, name='cart_clear'),
     path('cart', views.cart_detail, name='cart_detail'),
+    path('checkout/', views.checkout, name='checkout'),
 ]

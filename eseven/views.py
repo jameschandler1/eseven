@@ -1,9 +1,11 @@
+from django.http import response
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 #import  generic TemplateView
 from django.views.generic import TemplateView
 #import DetailView
 from django.views.generic.detail import DetailView
+
 #import all models
 from .models import *
 #import all forms
@@ -13,6 +15,8 @@ from django.core.mail import EmailMessage
 #import get_template
 from django.template.loader import get_template
 from django.views.decorators.csrf import csrf_exempt
+
+
 
 # Create your views here.
 class HomeView(TemplateView):
@@ -79,6 +83,4 @@ class ContactView(TemplateView):
                 return redirect('contact')
 
         return render(request, 'contact.html', {'form': form})
-
-
 

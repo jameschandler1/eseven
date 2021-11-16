@@ -1,8 +1,5 @@
 {% extends 'base.html' %}{% load cart_tag %}{% block content %} {% load static %}
 
-
-<img src="{{product.image}}" width='200' height='200'>
-    
 Total Length :: {{request.session.cart|length}}
 
 
@@ -15,5 +12,4 @@ Cart Detail:: {% for key,value in request.session.cart.items %}
 
 {% endfor %}
 
-    
 {% endblock %}
