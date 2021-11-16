@@ -33,8 +33,6 @@ ALLOWED_HOSTS = ['localhost', 'e7vintage.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'eseven',
     'cart',
+    'django.contrib.staticfiles',
 ]
 
 
@@ -94,7 +93,7 @@ DATABASES = {
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 import django_heroku
 django_heroku.settings(locals())
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -166,3 +165,4 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
