@@ -7,12 +7,10 @@ from django.urls import reverse
 # Create your views here.
 
 def cart_add(request, id):
-    print(request)
     cart = Cart(request)
-    print(cart)
     product = Product.objects.get(id=id)
     cart.add(product=product)
-    return redirect("cart")
+    return redirect('cart')
 
 def item_clear(request, id):
     cart = Cart(request)
@@ -41,5 +39,4 @@ def cart_clear(request):
     return redirect("cart")
 
 def cart_detail(request):
-    image = Product.objects.filter('image')
     return reverse(request, 'cart')

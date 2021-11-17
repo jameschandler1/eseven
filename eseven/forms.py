@@ -1,8 +1,10 @@
 #import django forms
 from django import forms
+
+from django.forms import ModelForm
 #import csrf_exempt
 from django.views.decorators.csrf import csrf_exempt
-
+from .models import Detail
 
 @csrf_exempt
 class ContactForm(forms.Form):
@@ -17,3 +19,7 @@ class ContactForm(forms.Form):
         self.fields['contact_email'].label = "Your email:"
         self.fields['content'].label = "What do you want to say?"
 
+class OrderForm(ModelForm):
+    class Meta:
+        model = Detail
+        fields = '__all__'

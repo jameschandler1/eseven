@@ -24,7 +24,7 @@ class Cart(object):
         if str(product.id) not in self.cart.keys():
 
             self.cart[product.id] = {
-                'userid': self.request.user.id,
+                'code': self.request.user.id,
                 'product_id': id,
                 'name': product.name,
                 'quantity': 1,
@@ -44,7 +44,7 @@ class Cart(object):
             if newItem == True:
 
                 self.cart[product.id] = {
-                    'userid': self.request,
+                    'code': self.request,
                     'product_id': product.id,
                     'name': product.name,
                     'quantity': 1,

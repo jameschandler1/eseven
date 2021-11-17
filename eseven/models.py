@@ -1,5 +1,10 @@
+
 from django.db import models
 import os
+import uuid
+
+
+
 # Create your models here.
 
 class Product(models.Model):
@@ -7,10 +12,18 @@ class Product(models.Model):
     description = models.TextField(max_length=255)
     image = models.CharField(max_length=255)
     price = models.FloatField()
-    
-class Order(models.Model):
-    transaction_id = models.CharField(max_length=255, null=True)
-    code = models.CharField(max_length=255)
+
+class OrderItem(models.Model):
+    code = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    total = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Detail(models.Model):
+    code = models.ForeignKey(OrderItem, on_delete=models.CASCADE, blank=True, null=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
@@ -26,21 +39,4 @@ class Order(models.Model):
     @property
     def name(self):
         return self.first_name + ' ' + self.last_name
-
-class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
-    product_title = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantity = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-class Cart(models.Model):
-    code = models.CharField(max_length=255, unique=True)
-    products = models.ManyToManyField(Product)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-
-
 
