@@ -16,11 +16,14 @@ from django.core.mail import EmailMessage
 from django.template.loader import get_template
 from django.views.decorators.csrf import csrf_exempt
 
-
-
 # Create your views here.
 class HomeView(TemplateView):
     template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.all()
+        return context
 
 class ProductListView(TemplateView):
     template_name = 'products_page.html'
@@ -28,7 +31,6 @@ class ProductListView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products'] = Product.objects.all()
-        print(Product.objects.all())
         return context
 
 class ProductDetailView(DetailView):

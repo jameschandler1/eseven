@@ -26,9 +26,10 @@ class Cart(object):
             self.cart[product.id] = {
                 'code': self.request.user.id,
                 'product_id': id,
+                'image': product.image,
                 'name': product.name,
                 'quantity': 1,
-                'price': str(product.price),
+                'price': int(product.price),
                 
             }
         else:
@@ -46,9 +47,10 @@ class Cart(object):
                 self.cart[product.id] = {
                     'code': self.request,
                     'product_id': product.id,
+                    'image': product.image,
                     'name': product.name,
                     'quantity': 1,
-                    'price': str(product.price),
+                    'price': int(product.price),
                 }
 
         self.save()

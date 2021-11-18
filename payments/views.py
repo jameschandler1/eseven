@@ -4,14 +4,12 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
 import the_app
 import stripe
-from eseven.models import Detail, OrderItem, Product
+from eseven.models import Order, Product, OrderItem, Link
 import decimal
 from django.core.mail import send_mail
 from eseven.forms import OrderForm
 # Create your views here.
 
-class PaymentView(TemplateView):
-    template_name = 'payments.html'
 
 class SuccessView(TemplateView):
     template_name = 'success.html'
@@ -27,58 +25,47 @@ def stripe_config(request):
         stripe_config = {'publicKey': the_app.settings.STRIPE_PUBLISHABLE_KEY}
         return JsonResponse(stripe_config, safe=False)
 
+class PaymentView(TemplateView):
+    template_name = 'payments.html'
+
 @csrf_exempt
 def create_checkout_session(request):
+    domain_url = 'https://e7vintage.herokuapp.com'
+    stripe.api_key = the_app.settings.STRIPE_SECRET_KEY
     if request.method == 'GET':
-        domain_url = 'http://localhost:8000/'
-        stripe.api_key = the_app.settings.STRIPE_SECRET_KEY
-        try:
-            # create new order item and save to database
-            # order_item = OrderItem(
-            #     code= OrderItem.objects.get_or_create('code'),
-            #     quantity=request.GET.get('quantity'),
-            #     product=request.GET.get('product'),
-            #     total=request.GET.get('total'),
-            #     created_at=request.GET.get('created_at'),
-            #     updated_at=request.GET.get('updated_at'),
-            # )
-            # order_item.save()
-            # # create new order detail and save to database
-            # order_detail = Detail(
-            #     code=request.GET.get('code'),
-            #     first_name=request.GET.get('first_name'),
-            #     last_name=request.GET.get('last_name'),
-            #     email=request.GET.get('email'),
-            #     address=request.GET.get('address'),
-            #     city=request.GET.get('city'),
-            #     state=request.GET.get('state'),
-            #     country=request.GET.get('country'),
-            #     zipcode=request.GET.get('zipcode'),
-            #     complete=request.GET.get('complete'),
-            #     created_at=request.GET.get('created_at'),
-            #     updated_at=request.GET.get('updated_at'),
-            # )
-            # order_detail.save()
-            
-
-            # ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
-            checkout_session = stripe.checkout.Session.create(
-                success_url=domain_url + 'success?session_id={CHECKOUT_SESSION_ID}',
-                cancel_url=domain_url + 'cancelled/',
-                payment_method_types=['card'],
-                mode='payment',
-                line_items=[
-                    {
-                        'name': 'T-shirt',
-                        'quantity':1,
-                        'currency': 'usd',
-                        'amount': 2300,
-                    }
-                ]
+        order = Order()
+        form = OrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            order.save()
+    # link = Link.objects.filter(code__icontains='code').first()
+        for item in request.session['cart']:
+            product = Product.objects.filter(id=item)
+            order_item = OrderItem(
+                order=order, 
+                product_title=request.session['cart'][item]['name'], 
+                price=request.session['cart'][item]['price'], 
+                quantity=request.session['cart'][item]['quantity']
             )
-            return JsonResponse({'sessionId': checkout_session['id']})
-        except Exception as e:
-            return JsonResponse({'error': str(e)})
+        del request.session['cart']
+
+    line_items = []
+
+    line_items.append({
+        'name': order_item.product_title,
+        'amount': (100 * order_item.price),
+        'currency': 'usd',
+        'quantity': order_item.quantity
+    })
+        # ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
+    checkout_session = stripe.checkout.Session.create(
+        success_url=domain_url + 'success?session_id={CHECKOUT_SESSION_ID}',
+        cancel_url=domain_url + 'cancelled/',
+        payment_method_types=['card'],
+        mode='payment',
+        line_items=line_items,
+    )
+    return JsonResponse({'sessionId': checkout_session['id']})
 
 
 
@@ -114,12 +101,12 @@ class OrderConfirm(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['order'] = Detail.objects.filter(code=kwargs['code']).first()
+        context['order'] = Order.objects.filter(code=kwargs['code']).first()
         return context
 
 
 def post(request):
-        order = Detail.objects.filter(transaction_id=request.data['source']).first()
+        order = Order.objects.filter(transaction_id=request.data['source']).first()
         if not order:
             raise Error('Order not found!')
 

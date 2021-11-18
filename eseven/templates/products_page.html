@@ -4,20 +4,20 @@
 
 <div class='container'>
     <div class='level-item'>
-        <figure class='content'
-        <a href="products/{{ p.id }}" class='image-link'>
-            <img src='{{ p.image }}' alt='{{ p.name }}' class='image is-square py-4' />
+        <figure class='content'>
+        <a href="products/{{ p.id }}" class='link' >
+        <img src='{{ p.image }}' alt='{{ p.name }}' class='py-4' />
         </a>
     </figure>
 </div>
 <div class='level-item mx-2'>
-    <div class='level-item'>
+    <!-- <div class='level-item'>
         <p class='subtitle'>{{ p.price }}</p>
-    </div>
-    <h3 class='title mx-5'>{{ p.name }}</h3>
-        <div class='level-item'>
+    </div> -->
+        <h3 class='title mx-5'>{{ p.name }}</h3>
+        <!-- <div class='level-item'>
             <p class='subtitle'>{{ p.description }}</p>
-        </div>
+        </div> -->
     </div>
 </div>
 {% endfor %} {% endblock %}

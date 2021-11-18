@@ -1,5 +1,7 @@
 from .views import *
 from django.urls import path
+#import staticmethod decorators
+
 
 urlpatterns = [
     path('payments/', PaymentView.as_view(), name='payments'),

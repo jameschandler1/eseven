@@ -1,24 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="container-fluid">
+<div class="container">
+  <p class="title mx-0">{{ product.name }}</p>
+  
+  
 
-<div class="card">
-    <div class="card-body"
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ product.name }}</h3>
+  <img
+  src="{{ product.image }}"
+  class="img-responsive"
+  height="500"
+  width="500"
+  />
+  <div class="container-body">
+    <h1 class="subtitle mx-0"> $ {{ product.price }}</h1>
+    <p class="subtitle text-muted "><b>Description</b>: {{ product.description }}</p>
+    <div class="is-align-content-space-between">
+      <a href="{% url 'cart_add' product.id %}" class="button is-primary"
+        >Add To Cart</a
+      >
     </div>
-    <div class="panel-body">
-        <div class="row">
-        <div class="col-md-6">
-            <img src="{{ product.image }}" class="img-responsive" height="500" width="500" />
-        </div>
-        <div class="col-md-6">
-            <p>{{ product.description }}</p>
-            <p>
-         
-            <a href="{% url 'cart_add' product.id %}" class="btn btn-primary">Add To Cart</a>
-            </p>
-        </div>
-        </div>
-    </div>
+  </div>
+</div>
+</div>
 
 {% endblock %}

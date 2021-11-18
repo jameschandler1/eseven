@@ -1,10 +1,10 @@
 #import django forms
 from django import forms
-
+from .models import Order
 from django.forms import ModelForm
 #import csrf_exempt
 from django.views.decorators.csrf import csrf_exempt
-from .models import Detail
+
 
 @csrf_exempt
 class ContactForm(forms.Form):
@@ -21,5 +21,9 @@ class ContactForm(forms.Form):
 
 class OrderForm(ModelForm):
     class Meta:
-        model = Detail
+        model = Order
         fields = '__all__'
+    
+    def clean_data(self, data):
+        data = super(OrderForm, self).clean()
+        return data
