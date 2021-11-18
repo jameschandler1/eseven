@@ -92,9 +92,9 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-import django_heroku
-django_heroku.settings(locals())
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# import django_heroku
+# django_heroku.settings(locals())
 
 
 # Password validation
