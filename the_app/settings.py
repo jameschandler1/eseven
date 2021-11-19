@@ -142,10 +142,11 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_FROM_EMAIL = 'stillsound@example.com'
-EMAIL_PORT = '1025'
+EMAIL_PORT = '587'
 EMAIL_USER=''
 EMAIL_PASSWORD=''
-EMAIL_USE_TLS = False
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
 
 
 STATIC_URL = '/static/'
@@ -165,3 +166,5 @@ STRIPE_PUBLISHABLE_KEY = 'pk_test_51JrqBKLnCPQsAwkmY7b7YnaGTDamtmJR7LVePVaAxzH14
 STRIPE_SECRET_KEY = 'sk_test_51JrqBKLnCPQsAwkmIEeGBAIbpSM7fQrzLXuWvU3O3Lehti1yz0HcsRBhxhtdqMQmhwsrjKuwJtfLZSE5SUi0ubXo00DpQ7IQBs'
 
 STRIPE_ENDPOINT_SECRET = 'whsec_dPGtPrDnFYBN0zQpY3ESPmFJCsD2PM4B' 
+
+

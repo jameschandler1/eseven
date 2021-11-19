@@ -54,36 +54,35 @@ class CartView(TemplateView):
 class ContactView(TemplateView):
     template_name = 'contact.html'
 
-    @csrf_exempt
-    def contact(request):
-        if request.method == 'POST':
-            form = ContactForm(request.POST)
-            if form.is_valid():
-                subject = request.POST.get('subject')
-                contact_name = request.POST.get('name', '')
-                contact_email = request.POST.get('email', '')
-                form_message = request.POST.get('message', '')
-                form_message = request.POST.get('message', '')
+@csrf_exempt
+def contact(request):
+    form_class = ContactForm
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = request.POST.get('subject')
+            contact_name = request.POST.get('name', '')
+            contact_email = request.POST.get('email', '')
+            form_message = request.POST.get('message', '')
+            # Email the profile with the contact information
+            template = get_template('contact_template.txt')
+            context = {
+                'subject': subject,
+                'contact_name': contact_name,
+                'contact_email': contact_email,
+                'form_message': form_message,
+            }
+            content = template.render(context)
 
-                # Email the profile with the contact information
-                template = get_template('contact_template.txt')
-                context = {
-                    'subject': subject,
-                    'contact_name': contact_name,
-                    'contact_email': contact_email,
-                    'form_message': form_message,
-                }
-                content = template.render(context)
+            email = EmailMessage(
+                "New contact form submission",
+                content,
+                "Your website" + '',
+                ['stillsound@protonmail.com'],
+                headers = {'Reply-To': contact_email}
+            )
+            email.send()
+            return redirect('contact')
 
-                email = EmailMessage(
-                    "New contact form submission",
-                    content,
-                    "Your website" + '',
-                    ['stillsound@protonmail.com'],
-                    headers = {'Reply-To': contact_email}
-                )
-                email.send()
-                return redirect('contact')
-
-        return render(request, 'contact.html', {'form': form})
+    return render(request, 'contact.html', {'form': form})
 

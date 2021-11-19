@@ -1,25 +1,22 @@
-{% extends 'base.html' %} {% block content %} 
+{% extends 'base.html' %} {% block content %} {% for p in products %}
 
-{% for p in products %}
-
-<div class='container'>
-    <div class='level-item'>
-        <figure class='content'>
-        <a href="products/{{ p.id }}" class='link' >
-        <img src='{{ p.image }}' alt='{{ p.name }}' class='py-4' />
-        </a>
-    </figure>
-</div>
-<div class='level-item mx-2'>
-    <!-- <div class='level-item'>
-        <p class='subtitle'>{{ p.price }}</p>
-    </div> -->
-        <h3 class='title mx-5'>{{ p.name }}</h3>
-        <!-- <div class='level-item'>
-            <p class='subtitle'>{{ p.description }}</p>
-        </div> -->
+<div class="pp__container">
+  <div class="container">
+    <div class="level-item">
+        <div class="pp__name_wrap">
+        </div>
+        <figure class="pp__wrap">
+            <div class="mx-2">
+              <h3 id='pp__name' class="title mx-5">{{ p.name }}</h3>
+            </div>
+            <hr class='name__break'/>
+            <a href="products/{{ p.id }}" class="link">
+                <img src="{{ p.image }}" alt="{{ p.name }}" id="pp__image" />
+            </a>
+        </figure>
     </div>
+    <hr class='name__break'/>
+  </div>
 </div>
+
 {% endfor %} {% endblock %}
-
-
