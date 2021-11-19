@@ -141,5 +141,8 @@ hr {
     justify-content: center;
 }
 
+#swiper__container {
+  margin-top: 30vh;
+}
 
 
