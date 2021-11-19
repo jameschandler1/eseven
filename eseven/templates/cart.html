@@ -1,44 +1,50 @@
 {% extends 'base.html' %}{% load cart_tag %}{% block content %}{% load static %}
 
-<h1 class="title mx-5">Cart Detail</h1>
+<h1 class="title mx-5">Your Cart</h1>
 {% if request.session.cart|length != 0 %}
 <p class="level mx-5">Total Length : {{request.session.cart|length}}</p>
 {% endif %}
-<div class="container is-fluid">
-    {% for key,value in request.session.cart.items %}
-      <div class='box'>
-      <div class="box-content">
-        <div class="level">
-          <img
-            class="img-responsive"
-            src="{{value.image}}"
-            width="200"
-            height="200"
-          />
-          <div class="container">
-              <h3 class="title mx-8 mt-4">{{value.name}}</h3>
-                
-                <br />
-                <div class="level">
-                    <p class="subtitle">{{value.description}}</p>
-                </div>
-                <div class="level-item">
-                </div>
-            </div>
-            <div class="block-content m-4">
-                <p class="subtitle text-muted"> quantity: {{value.quantity}}</p>
-                <p class="text-muted level-item">Total {{ value.price|multiply:value.quantity }}</p>
-                <br />
-                <a class="button is-ghost" href="{% url 'item_increment' value.product_id %}">+</a>
-                <a class=" button is-ghost" href="{% url 'item_decrement' value.product_id %}">-</a>
-            </div>
-        </div>
+{% for key,value in request.session.cart.items %}
+ <p class="subtitle text-muted mx-5">Total: $ {{ value.price|multiply:value.quantity }}</p>
+<div class="_cart_box">
+  <div class="__cart">
+    
+   
+    <p class="subtitle text-muted"> Price: ${{value.price}}</p>
+    <div class="cart_img_wrap">
+      <img
+      class="cart__image"
+      src="{{value.image}}"
+      
+      />
     </div>
-</div>
+    
+    <div class="__item_container">
+      <div class="_item">
+        <h3 class="title px-2"> <tt>item:</tt> {{value.name}}</h3>
+        <p class="subtitle">{{value.description}}</p>
+      </div>
+      <hr class='_line__item' />
+      <div class="_price">
+        
+        <p class="subtitle text-muted my-2 mx-2"> Quantity: {{value.quantity}}</p>
+        
+        
+        
+      </div>  
+      <a id='_plus' class="button is-ghost" href="{% url 'item_increment' value.product_id %}">+</a>
+      <a id='_minus' class=" button is-ghost" href="{% url 'item_decrement' value.product_id %}">-</a>
+    </div>
+  </div>
+
+</div>    
 {% endfor %}
 {% if request.session.cart|length != 0 %}
-<a class='button is-primary' href="{% url 'payments' %}">Checkout</a>
-<a class='button is-danger mx-2' href="{% url 'cart_clear' %}">Clear Cart</a>
+<div class="level-item">
+  <a id='__checkout' class='button is-primary px-2' href="{% url 'payments' %}">Checkout</a>
+  <a id='clear__cart' class='button is-danger mx-2 px-2' href="{% url 'cart_clear' %}">Clear Cart</a>
+</div>
+
 {% endif %}
 
 {% endblock %}
