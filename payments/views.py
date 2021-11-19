@@ -38,7 +38,7 @@ def create_checkout_session(request):
         if form.is_valid():
             form.save()
             order.save()
-    # link = Link.objects.filter(code__icontains='code').first()
+  
         for item in request.session['cart']:
             product = Product.objects.filter(id=item)
             order_item = OrderItem(
@@ -50,7 +50,7 @@ def create_checkout_session(request):
         del request.session['cart']
 
     line_items = []
-
+    
     line_items.append({
         'name': order_item.product_title,
         'amount': (100 * order_item.price),
@@ -60,7 +60,7 @@ def create_checkout_session(request):
         # ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
     checkout_session = stripe.checkout.Session.create(
         success_url=domain_url + '/success?session_id={CHECKOUT_SESSION_ID}',
-        cancel_url=domain_url + 'cancelled/',
+        cancel_url=domain_url + '/cancelled/',
         billing_address_collection='required',
         payment_method_types=['card'],
         mode='payment',
@@ -106,28 +106,28 @@ class OrderConfirm(TemplateView):
         return context
 
 
-def post(request):
-        order = Order.objects.filter(transaction_id=request.data['source']).first()
-        if not order:
-            raise Error('Order not found!')
+    def post(request):
+            order = Order.objects.filter(transaction_id=request.data['source']).first()
+            if not order:
+                raise Error('Order not found!')
 
-        order.complete = True
-        order.save()
+            order.complete = True
+            order.save()
 
-        send_mail(
-            subject='Order Completed!',
-            message='Order #' + str(order.id) + ' with a total of $' + str(order.admin_revenue) + ' has been completed!',
-            from_email= 'from@email.com',
-            recipient_list=['a@a.com', 'b@b.com'],
-        )
-        send_mail(
-            subject='Order Completed!',
-            message='Your order #' + str(order.id) + ' has been processed!',
-            from_email= 'from@email.com',
-            recipient_list=[order.email]
-        )
+            send_mail(
+                subject='Order Completed!',
+                message='Order #' + str(order.id) + ' with a total of $' + str(order.admin_revenue) + ' has been completed!',
+                from_email= 'from@email.com',
+                recipient_list=['a@a.com', 'b@b.com'],
+            )
+            send_mail(
+                subject='Order Completed!',
+                message='Your order #' + str(order.id) + ' has been processed!',
+                from_email= 'from@email.com',
+                recipient_list=[order.email]
+            )
 
-        return JsonResponse({
-            'success': True,
-            "message": "transaction successful!"
-        })
+            return JsonResponse({
+                'success': True,
+                "message": "transaction successful!"
+            })
