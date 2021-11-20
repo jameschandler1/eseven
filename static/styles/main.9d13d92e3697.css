@@ -5,7 +5,7 @@
 }
 
 body{
-background-image: url('/static/styles/liminal.jpeg');
+background-image: url("/static/styles/liminal.6b3194af3ff1.jpeg");
 background-size: cover;
 background-position: center; 
 
@@ -25,7 +25,7 @@ position: relative;
 }
 
 html {
-  background-image: url('/static/styles/liminal.jpeg'); 
+  background-image: url("/static/styles/liminal.6b3194af3ff1.jpeg"); 
   background-size: cover;
   background-position: center;
   rotate: 180deg;
