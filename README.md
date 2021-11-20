@@ -20,23 +20,23 @@ user flow chart:
 
 What features will your app have?
     			
-                    1. Login
+                    1. Login (icebox/optional)
                         - Modal 
-                    2. Logout 
-                    3. Signup
+                    2. Logout (icebox/optional)
+                    3. Signup (icebox/optional)
                         - Modal 
                     4. Homepage
                     5. Display products
-                        - Pagination
-                        - Review on product
-                    6. Filter by certain specifications
+                        - Pagination (icebox/optional)
+                        - Review on product (icebox)
+                    6. Filter by certain specifications (icebox)
                         - Year
                         - By date added
                         - By name (search bar)
                         - By type (tops, bottoms, accessories…)
                     7. Cart
                     8. Checkout (stripe)
-                    9. About/brand-promotion form/
+                    9. About/brand-promotion form/ (icebox)
 				                            
 User stories
 
@@ -66,21 +66,19 @@ User stories
    
     1. As a user I want to be able to shop without having to make an account
     
-    2. As a user if id like to id want to make an account
-    
-    3. As a user I want to be able to search for specific items based on type, year, or brand
+    2. As a user I want to be able to search for specific items based on type, year, or brand (icebox item #2)
     
     4. As a user I want to be able to add potential purchases to a cart
     
     5. As a user I want to be able to make purchases through the website
     
-    6. As a user I want to be able to leave feedback on products or in general
+    6. As a user I want to be able to leave feedback on products or in general (icebox item #1)
     
-    7. As a user I want to be able to find info about the business and what its up to
+    7. As a user I want to be able to find info about the business and what its up to 
     
     8. As a user I want confirmation that transactions were successful
     
     9. As a user similarly I want to be notified of any issues during the transaction I.e. failure to complete…
     
-    10. As a user I want to be able to contact the site owner about potential promotional opportunities
+    10. As a user I want to be able to contact the site owner about potential promotional opportunities (icebox item #3)
 
