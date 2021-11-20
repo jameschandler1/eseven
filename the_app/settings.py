@@ -167,4 +167,7 @@ STRIPE_SECRET_KEY = 'sk_test_51JrqBKLnCPQsAwkmIEeGBAIbpSM7fQrzLXuWvU3O3Lehti1yz0
 
 STRIPE_ENDPOINT_SECRET = 'whsec_dPGtPrDnFYBN0zQpY3ESPmFJCsD2PM4B' 
 
-
+CORS_ALLOW_HOSTS =[
+    'http://localhost:8000',
+    'https://e7sevenvintage.herokuapp.com',
+]
