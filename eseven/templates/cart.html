@@ -6,6 +6,7 @@ class="title mx-5">Your Cart</h1>
 {% if request.session.cart|length != 0 %}
 <p class="level mx-5">Total Length : {{request.session.cart|length}}</p>
 {% endif %}
+
 {% for key,value in request.session.cart.items %}
  <p class="subtitle text-muted mx-5">Total: $ {{ value.price|multiply:value.quantity }}</p>
 <div class="_cart_box">
