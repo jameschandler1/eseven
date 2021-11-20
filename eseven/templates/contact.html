@@ -1,10 +1,30 @@
-{% extends 'base.html' %}
-{% block title %}Contact - {{ block.super }}{% endblock %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-<h1>Contact</h1>
-<form role="form" action="" method="post">
-    {{ form }}
-    <button type="submit">Submit</button>
+<div class='contact__container'>
+    <div class="contact__form">
+    <h1 class="title">Contact Us!</h1>
+<form role='form' method="post" action=''>
+    
+      <label class='contact__label' for="subject">Subject:</label>
+      <div class="form__field">
+          <input type="text" name="subject" placeholder="Saying hi!" />
+        </div>
+      <label class='contact__label' for="contact_name">Name:</label>
+      <div class="form__field">
+          <input type="text" name="contact_name" placeholder="Jane" />
+        </div>
+        <label class='contact__label' for="contact_email">Email:</label>
+        <div class="form__field">
+            <input type="email" name="contact_email" placeholder='Jane@example.com' />
+        </div>
+        <label class='contact__label' for="form_message">Message:</label>
+        <div class="form__field">
+            <textarea class='big__field' type="textarea" name="form_message" placeholder='Love the new items...' ></textarea>
+        </div>
+    <button class='button is-black ' type="submit">Submit</button>
+  </div>
 </form>
+</div>
+
+
 {% endblock %}

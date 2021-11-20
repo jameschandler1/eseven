@@ -16,7 +16,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-q9o!l^g3p*#dk!x&iqn977%d2eizbb#lg!-08$x-29+l&$pe8v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', 'e7vintage.herokuapp.com']
 
 # Application definition
 
@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'eseven',
-    'cart'
+    'cart',
+    
+    'django.contrib.staticfiles',
+    'payments.apps.PaymentsConfig',
 ]
 
 CART_SESSION_ID = 'cart'
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 ROOT_URLCONF = 'the_app.urls'
@@ -60,7 +63,9 @@ ROOT_URLCONF = 'the_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR,'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +93,9 @@ DATABASES = {
 }
 
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+import django_heroku
+django_heroku.settings(locals())
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -121,26 +129,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = [
-    'staticfiles',
-]
-
-# # Base url to serve media files
-MEDIA_URL = '/media/'
-
-# Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -150,7 +142,29 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_FROM_EMAIL = 'stillsound@example.com'
-EMAIL_PORT = '1025'
+EMAIL_PORT = '587'
 EMAIL_USER=''
 EMAIL_PASSWORD=''
-EMAIL_USE_TLS = False
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+
+]
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51JrqBKLnCPQsAwkmY7b7YnaGTDamtmJR7LVePVaAxzH14uFBaPFJGS2bW5w7WmqdUhl01n2n91hFjki28rUtoEpU00OH6luZEl'
+STRIPE_SECRET_KEY = 'sk_test_51JrqBKLnCPQsAwkmIEeGBAIbpSM7fQrzLXuWvU3O3Lehti1yz0HcsRBhxhtdqMQmhwsrjKuwJtfLZSE5SUi0ubXo00DpQ7IQBs'
+
+STRIPE_ENDPOINT_SECRET = 'whsec_dPGtPrDnFYBN0zQpY3ESPmFJCsD2PM4B' 
+
+

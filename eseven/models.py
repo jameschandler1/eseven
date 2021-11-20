@@ -1,15 +1,24 @@
+
 from django.db import models
+import os
+import uuid
 # Create your models here.
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
-    image = models.ImageField(upload_to='media/')
+    image = models.CharField(max_length=255)
     price = models.FloatField()
-    
+
+class Link(models.Model):
+    code = models.UUIDField(default=uuid.uuid4, unique=True)
+    products = models.ManyToManyField(Product)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 class Order(models.Model):
     transaction_id = models.CharField(max_length=255, null=True)
-    code = models.CharField(max_length=255)
+    code = models.ForeignKey(Link, to_field='code', on_delete=models.PROTECT)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
@@ -29,17 +38,7 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
     product_title = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.IntegerField()
     quantity = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-class Cart(models.Model):
-    code = models.CharField(max_length=255, unique=True)
-    products = models.ManyToManyField(Product)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-
-
-

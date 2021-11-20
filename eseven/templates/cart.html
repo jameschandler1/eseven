@@ -1,18 +1,63 @@
-{% extends 'base.html' %}{% load cart_tag %}{% block content %}
+{% extends 'base.html' %}{% load cart_tag %}{% block content %}{% load static %}
+
+<h1 
+style='text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.635)';
+class="title mx-5">Your Cart</h1>
+{% if request.session.cart|length != 0 %}
+<p class="level mx-5">Total Length : {{request.session.cart|length}}</p>
+{% endif %}
+{% for key,value in request.session.cart.items %}
+ <p class="subtitle text-muted mx-5">Total: $ {{ value.price|multiply:value.quantity }}</p>
+<div class="_cart_box">
+  <div class="__cart">
     
+   
+    <p 
+    style
+    class="subtitle text-muted"> Price: ${{value.price}}</p>
+    <div class="cart_img_wrap">
+      <img
+      class="cart__image"
+      src="{{value.image}}"
+      
+      />
+    </div>
+    
+    <div class="__item_container">
+      <div class="_item">
+        <h3 class="title px-2"> <tt>item:</tt> {{value.name}}</h3>
+        <p class="subtitle">{{value.description}}</p>
+      </div>
+      <!-- <hr class='_line__item' /> -->
+      <hr 
+      style="
+      margin-top: -30px;
+      margin-right: 30px;
+      margin-left: 30px;
+      ">
+      <div 
+      style="margin-bottom: 10px;"
+      class="_price">
+        <p 
+        style='margin: 5px;'
+        class="subtitle text-muted"> Quantity: {{value.quantity}}</p>
+        
+        
+        
+        <a id='_plus' class="button is-ghost mx-2" href="{% url 'item_increment' value.product_id %}">+</a>
+        <a id='_minus' class=" button is-ghost" href="{% url 'item_decrement' value.product_id %}">-</a>
+      </div>  
+    </div>
+  </div>
 
-
-Total Length :: {{request.session.cart|length}}
-
-Cart Detail:: {% for key,value in request.session.cart.items %}
-
-<img src="{{value.image}}" width="120" height="80"><br> {{value.name}}<br> {{value.price}} <br> {{value.quantity}} <br> Total {{ value.price|multiply:value.quantity }}
-
-
-<a href="{% url 'cart_clear' %}">Clear Cart</a>
-<a href="{% url 'item_increment' value.product_id %}">Increament</a>
-<a href="{% url 'item_decrement' value.product_id %}">Decrement</a>
-
+</div>    
 {% endfor %}
-    
+{% if request.session.cart|length != 0 %}
+<div class="level-item">
+  <a id='__checkout' class='button is-primary px-2' href="{% url 'payments' %}">Checkout</a>
+  <a id='clear__cart' class='button is-danger mx-2 px-2' href="{% url 'cart_clear' %}">Clear Cart</a>
+</div>
+
+{% endif %}
+
 {% endblock %}

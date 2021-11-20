@@ -24,11 +24,12 @@ class Cart(object):
         if str(product.id) not in self.cart.keys():
 
             self.cart[product.id] = {
-                'userid': self.request.user.id,
+                'code': self.request.user.id,
                 'product_id': id,
+                'image': product.image,
                 'name': product.name,
                 'quantity': 1,
-                'price': str(product.price),
+                'price': int(product.price),
                 
             }
         else:
@@ -44,11 +45,12 @@ class Cart(object):
             if newItem == True:
 
                 self.cart[product.id] = {
-                    'userid': self.request,
+                    'code': self.request,
                     'product_id': product.id,
+                    'image': product.image,
                     'name': product.name,
                     'quantity': 1,
-                    'price': str(product.price),
+                    'price': int(product.price),
                 }
 
         self.save()
@@ -71,7 +73,7 @@ class Cart(object):
     def decrement(self, product):
         for key, value in self.cart.items():
             if key == str(product.id):
-
+                print(product)
                 value['quantity'] = value['quantity'] - 1
                 if(value['quantity'] < 1):
                     return redirect('cart:cart_detail')

@@ -1,5 +1,46 @@
 {% extends 'base.html' %}{% block content %}
 
-        <h1>{{ base.title }}</h1>
+
+
+ <section id='swiper__container' styles="margin-top: 0px;"class="flex min-h-screen justify-center items-center">
+   <div  class="container mx-auto px-6">
+
+      <div class="swiper mySwiper">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide" id="test">
+               
+                 
+                  <h1 class="title text-center font-semibold text-3xl lg:text-4xl" id="welcome-txt">Evolving Seven Vintage.</h1>
+                  <br>
+                  <p id="welcome-para" class="text-center">Shop till you drop.
+                  </p>
+                  
+           
+                  
+            </div>
+            <div class="swiper-slide">
+               <h1 class="text-center font-semibold text-3xl lg:text-4xl text-white" id="welcome-txt" >Make your Life Happy</h1>
+               <br>
+               <p id="welcome-para" class="text-center">CLOTHES AND MORE<br>WE LOVE YOU!</p>
+               </p>
+               
+            </div>
+         </div>
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+      </div>
+   </div>
+</section>
+
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+    
 
 {% endblock %}

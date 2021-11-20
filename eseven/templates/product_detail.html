@@ -1,23 +1,67 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} 
 
-<div class="card">
-    <div class="card-body"
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ product.name }}</h3>
+<!-- <div class="container-fluid">
+<div class="container">
+  <p class="title mx-0">{{ product.name }}</p>
+  
+  <div class="section is-medium">
+    <img
+    src="{{ product.image }}"
+    class="image"
+    height="300"
+    width="300"
+    />
+  <div class='level-item'>
+    <div class='level-1'>
+      <h1 class="subtitle text-muted m-2"> 
+        $ {{ product.price }}
+      </h1>
     </div>
-    <div class="panel-body">
-        <div class="row">
-        <div class="col-md-6">
-            <img src="{{ product.image }}" class="img-responsive" height="500" width="500" />
-        </div>
-        <div class="col-md-6">
-            <p>{{ product.description }}</p>
-            <p>
-         
-            <a href="{% url 'cart_add' product.id %}" class="btn btn-primary">Add To Cart</a>
-            </p>
-        </div>
-        </div>
+    <div class="is-align-content-space-between">
+      <a href="{% url 'cart_add' product.id %}" class="button is-icon-button is-pulled-right">
+        Add To Cart
+      </a>
     </div>
+  </div>
+  <div class="container-body">
+    <div class="content">
+
+    
+    <p class="subtitle text-muted is-pulled-right mx-4">
+      <b>Description</b>: {{ product.description }}
+    </p>
+  
+   </div>
+  </div>
+</div>
+  </div>
+</div> -->
+<div class='product-container'>
+    <div class='image-wrap'>
+      <img src='{{product.image}}' class='the__img'
+      />
+    </div>
+    <div class='product-info'>
+        <h1 style="
+          background-color: #f6eeff;
+          font-size: 2.5rem;
+          font-weight: bold;
+          margin-bottom: 20px;
+          background-color: #000000;
+          color: white;
+          border-radius: 100px;
+          padding: 15px;
+          " 
+          class='title product-name'>{{product.name}}</h1>
+          
+          <p class='product-description'>Description: {{product.description}}
+            
+          </p>
+          <h2 
+          style='color: rgb(41, 41, 41);'
+          class='product-price'>${{product.price}}</h2>
+      <a href="{% url 'cart_add' product.id %}"" id='btn__add' class='button'>Add to Cart</a>
+    </div>
+</div>
 
 {% endblock %}

@@ -1,9 +1,11 @@
+from django.http import response
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 #import  generic TemplateView
 from django.views.generic import TemplateView
 #import DetailView
 from django.views.generic.detail import DetailView
+
 #import all models
 from .models import *
 #import all forms
@@ -18,13 +20,17 @@ from django.views.decorators.csrf import csrf_exempt
 class HomeView(TemplateView):
     template_name = 'home.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.all()
+        return context
+
 class ProductListView(TemplateView):
     template_name = 'products_page.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products'] = Product.objects.all()
-        print(Product.objects.all())
         return context
 
 class ProductDetailView(DetailView):
@@ -41,44 +47,42 @@ class CartView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = Cart.objects.all()
+        context['products'] = Product.objects.all()
         print(context)
         return context
+        
 class ContactView(TemplateView):
     template_name = 'contact.html'
 
-    @csrf_exempt
-    def contact(request):
-        if request.method == 'POST':
-            form = ContactForm(request.POST)
-            if form.is_valid():
-                subject = request.POST.get('subject')
-                contact_name = request.POST.get('name', '')
-                contact_email = request.POST.get('email', '')
-                form_message = request.POST.get('message', '')
-                form_message = request.POST.get('message', '')
+@csrf_exempt
+def contact(request):
+    form_class = ContactForm
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = request.POST.get('subject')
+            contact_name = request.POST.get('name', '')
+            contact_email = request.POST.get('email', '')
+            form_message = request.POST.get('message', '')
+            # Email the profile with the contact information
+            template = get_template('contact_template.txt')
+            context = {
+                'subject': subject,
+                'contact_name': contact_name,
+                'contact_email': contact_email,
+                'form_message': form_message,
+            }
+            content = template.render(context)
 
-                # Email the profile with the contact information
-                template = get_template('contact_template.txt')
-                context = {
-                    'subject': subject,
-                    'contact_name': contact_name,
-                    'contact_email': contact_email,
-                    'form_message': form_message,
-                }
-                content = template.render(context)
+            email = EmailMessage(
+                "New contact form submission",
+                content,
+                "Your website" + '',
+                ['stillsound@protonmail.com'],
+                headers = {'Reply-To': contact_email}
+            )
+            email.send()
+            return redirect('contact')
 
-                email = EmailMessage(
-                    "New contact form submission",
-                    content,
-                    "Your website" + '',
-                    ['stillsound@protonmail.com'],
-                    headers = {'Reply-To': contact_email}
-                )
-                email.send()
-                return redirect('contact')
-
-        return render(request, 'contact.html', {'form': form})
-
-
+    return render(request, 'contact.html', {'form': form})
 
