@@ -1,6 +1,6 @@
 * {
   font-family: 'LEMON MILK';
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -39,8 +39,8 @@ header {
   padding: 10px;
   margin-bottom: 20px;
   background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,0.01) 4%, rgba(245, 245, 245, 0.3) 46%, rgba(236,236,236,.4) 84%)
-
+  background: linear-gradient(0deg, rgba(255,255,255,0.00) 4%, rgba(245, 245, 245, 0.1) 46%, rgba(236,236,236,.25) 84%);
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 .product-container {
@@ -50,6 +50,11 @@ header {
   display: flex;
   gap: 100px;
   justify-content: space-between;
+}
+
+.product-info {
+  color: #ffffff;
+  margin: 5px auto;
 }
 
 .image-wrap {
@@ -63,6 +68,7 @@ header {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 150px;
 }
 
 .price {
@@ -70,6 +76,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  
 }
 
 #btn__add {
@@ -78,6 +85,7 @@ header {
   left: 0;
   background-color: black;
   color: white;
+  border-radius: 20px;
 }
 
 .product-info {
@@ -90,7 +98,7 @@ header {
   object-fit: cover;
   object-position: center;
   padding: 10px;
-  
+  border-radius: 150px;
 }
 
 .pp__wrap {
@@ -100,29 +108,25 @@ header {
 }
 
 .pp__container {
-  margin-top: 8vh;
+  margin-top: 2vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* .pp__name_wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-} */
 
 #pp__name {
   font-size: 2.5rem;
   font-weight: bold;
   margin-top: 5vh;
   margin-bottom: 20px;
-  background-color: #000000;
+  background-color: #1d1d1d;
   color: white;
- 
+  border-radius: 100px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: -1px 2px 0px rgb(0, 0, 0);
+  /* filter: invert(100%) */
 }
 
 .contact__container {
@@ -190,38 +194,62 @@ hr {
 
 ._item {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 0;
-
+  border-radius: 50%;
+  margin-top: -5vh;
+  padding: 10px;
 }
 
 .__item_container {
   background-color: #ffeef8;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -10vh;
+  margin-top: -12vh;
+  box-shadow: 0px 1px 2px rgb(255, 255, 255);
+  border-radius: 0px 0px 20px 20px;
 }
 
 ._price {
   display: flex;
   margin: auto 0;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  justify-content: center;
 }
 
 .__cart {
   box-shadow: -5px 2px 20px 5px rgba(130, 130, 130, 0.062);
   outline: solid 1px rgba(172, 172, 172, 0.036);
   max-width: 800px;
-  justify-content: space-between;
-  margin: 3em;
+  justify-content: space-center;
   padding: 2em;
+  margin: -10em;
   margin-bottom: 20px;
+  
+  text-shadow: 1px 1px 20px rgb(255, 255, 255);
+ 
+  justify-content: center;
 }
 
+.cart__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 150px;
+  border-radius: 20px 20px 0px 0px;
+}
 
 .cart_img_wrap {
   width: 100%;
   overflow: hidden;
-  height: 60vh;;
+  height: 70vh;
+ 
 }
-
 
 #__checkout {
   padding: 10px;
@@ -230,6 +258,7 @@ hr {
   margin-top: 10vh;
   margin-bottom: 20vh;
   outline-offset: 2px;
+  border-radius: 30px; 
 }
 
 #clear__cart {
@@ -239,6 +268,7 @@ hr {
   margin-top: 10vh;
   margin-bottom: 20vh;
   outline-offset: 2px;
+  border-radius: 30px;
 }
 
 tt {
@@ -254,17 +284,23 @@ tt {
 }
 
 #_plus {
+  margin-top: -5px;
   margin-left: 5px;
   font-size: 1.2rem;
   font-weight: bold;
   outline-offset: 2px;
+  justify-content: center;
+  border-radius: 30px;
 }
 
 #_minus {
-  margin-bottom: 5px;
+  margin-top: -5px;
+  margin-bottom: 10px;
   font-size: 1.2rem;
   font-weight: bold;
   outline-offset: 2px;
+  justify-content: center;
+  border-radius: 30px;
 }
 
 ._line__item {
@@ -317,4 +353,29 @@ tt {
   top:                 0;
   width:               100%;
   z-index:             1;
+}
+
+a#btn__add {
+  border: none;
+}
+
+.product-name {
+  text-shadow: 1px 1px 1px #ffffff;
+  box-shadow: -1px 1px 0px rgb(0, 0, 0);
+}
+
+.product-description {
+  text-shadow: -1px 1px 0px #000000;
+  color: #2b2b2b;
+  margin: 20px;
+}
+
+.product-price {
+  text-shadow: -1px 1px 0px #ffffff;
+  margin: 20px;
+}
+
+a.py-2:hover {
+  text-shadow: 1px 1px 0px #ffffff;
+  color: #ffffff;
 }

@@ -1,6 +1,8 @@
 {% extends 'base.html' %}{% load cart_tag %}{% block content %}{% load static %}
 
-<h1 class="title mx-5">Your Cart</h1>
+<h1 
+style='text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.635)';
+class="title mx-5">Your Cart</h1>
 {% if request.session.cart|length != 0 %}
 <p class="level mx-5">Total Length : {{request.session.cart|length}}</p>
 {% endif %}
@@ -10,7 +12,9 @@
   <div class="__cart">
     
    
-    <p class="subtitle text-muted"> Price: ${{value.price}}</p>
+    <p 
+    style
+    class="subtitle text-muted"> Price: ${{value.price}}</p>
     <div class="cart_img_wrap">
       <img
       class="cart__image"
@@ -24,16 +28,25 @@
         <h3 class="title px-2"> <tt>item:</tt> {{value.name}}</h3>
         <p class="subtitle">{{value.description}}</p>
       </div>
-      <hr class='_line__item' />
-      <div class="_price">
+      <!-- <hr class='_line__item' /> -->
+      <hr 
+      style="
+      margin-top: -30px;
+      margin-right: 30px;
+      margin-left: 30px;
+      ">
+      <div 
+      style="margin-bottom: 10px;"
+      class="_price">
+        <p 
+        style='margin: 5px;'
+        class="subtitle text-muted"> Quantity: {{value.quantity}}</p>
         
-        <p class="subtitle text-muted my-2 mx-2"> Quantity: {{value.quantity}}</p>
         
         
-        
+        <a id='_plus' class="button is-ghost mx-2" href="{% url 'item_increment' value.product_id %}">+</a>
+        <a id='_minus' class=" button is-ghost" href="{% url 'item_decrement' value.product_id %}">-</a>
       </div>  
-      <a id='_plus' class="button is-ghost" href="{% url 'item_increment' value.product_id %}">+</a>
-      <a id='_minus' class=" button is-ghost" href="{% url 'item_decrement' value.product_id %}">-</a>
     </div>
   </div>
 
