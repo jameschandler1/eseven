@@ -1,30 +1,29 @@
 {% extends 'base.html' %}{% block content %}
 
- <section id='swiper__container' styles="margin-top: -80px;"class="flex min-h-screen justify-center items-center">
+
+
+ <section id='swiper__container' styles="margin-top: 0px;"class="flex min-h-screen justify-center items-center">
    <div  class="container mx-auto px-6">
 
       <div class="swiper mySwiper">
          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-               <div class="">
-                  <h1 class="title text-center font-semibold text-3xl lg:text-4xl" id="welcome-txt" >Evolving Seven Vintage.</h1>
-                  <br>
-                  <p id="welcome-para" class="text-center">Shop till you drop.<br>coupons coupons shoppimg we love it oh yeah sweet!<br> if only my skin was made of money i could just give you a hi five and say its all good.</p>
-                  </p>
-               </div>
-            </div>
             <div class="swiper-slide" id="test">
-               <div class="">
+               
+                 
+                  <h1 class="title text-center font-semibold text-3xl lg:text-4xl" id="welcome-txt">Evolving Seven Vintage.</h1>
+                  <br>
+                  <p id="welcome-para" class="text-center">Shop till you drop.
+                  </p>
                   
-               <img class='' src="{{ product.image }}" alt="{{ product.name }}" />
+           
                   
-               </div>
             </div>
             <div class="swiper-slide">
                <h1 class="text-center font-semibold text-3xl lg:text-4xl text-white" id="welcome-txt" >Make your Life Happy</h1>
                <br>
                <p id="welcome-para" class="text-center">CLOTHES AND MORE<br>WE LOVE YOU!</p>
                </p>
+               
             </div>
          </div>
          <div class="swiper-button-next"></div>
@@ -42,5 +41,6 @@
         },
       });
     </script>
+    
 
 {% endblock %}
