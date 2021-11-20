@@ -17,7 +17,20 @@ user flow chart:
 
 ![Screen Shot 2021-11-05 at 1 33 14 AM](https://user-images.githubusercontent.com/80052602/140481696-e488d2cc-ea87-4cb9-b0e1-888e070ce029.png)
 
-techs: django, bulma, bootstrap, material, django-shopping-cart, stripe, 
+techs:
+Bulma, 
+Bootstrap, 
+Material, 
+stripe, 
+Postgresql, 
+CSS, 
+HTML5, 
+Python/Django, 
+JavaScript, 
+JQuery,
+Heroku,
+
+
 
 
 What features will your app have?
