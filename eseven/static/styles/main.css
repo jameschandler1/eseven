@@ -56,6 +56,7 @@ header {
 .product-info {
   color: #ffffff;
   margin: 5px auto;
+  width: 50%;
 }
 
 .image-wrap {
