@@ -3,19 +3,15 @@
 <h1 
 style='text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.635)';
 class="title mx-5">Your Cart</h1>
+
 {% if request.session.cart|length != 0 %}
 <p class="level mx-5">Total Length : {{request.session.cart|length}}</p>
 {% endif %}
 
 {% for key,value in request.session.cart.items %}
- <p class="subtitle text-muted mx-5">Total: $ {{ value.price|multiply:value.quantity }}</p>
+<p id="total" class="subtitle text-muted mx-5">Total: $ {{ value.price|multiply:value.quantity }}</p>
 <div class="_cart_box">
   <div class="__cart">
-    
-   
-    <p 
-    style
-    class="subtitle text-muted"> Price: ${{value.price}}</p>
     <div class="cart_img_wrap">
       <img
       class="cart__image"
@@ -26,9 +22,11 @@ class="title mx-5">Your Cart</h1>
     
     <div class="__item_container">
       <div class="_item">
-        <h3 class="title px-2"> <tt>item:</tt> {{value.name}}</h3>
+        <h3 
+        id="cart__tilte" class="title px-2"> <tt>item:</tt> {{value.name}}</h3>
         <p class="subtitle">{{value.description}}</p>
       </div>
+      
       <!-- <hr class='_line__item' /> -->
       <hr 
       style="
@@ -41,6 +39,7 @@ class="title mx-5">Your Cart</h1>
       class="_price">
         <p 
         style='margin: 5px;'
+        id="_quantity"
         class="subtitle text-muted"> Quantity: {{value.quantity}}</p>
         
         
