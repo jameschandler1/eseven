@@ -47,7 +47,15 @@ body {
 .swiper-button-next {
   color: transparent;
 }
+.swiper-button-next::after {
+  color: transparent;
+}
 
+
+
+.swiper-button-prev::after {
+  color: transparent;
+}
 .swiper-button-prev {
   color: transparent;
 }
@@ -207,6 +215,7 @@ header {
   background-color: black;
   color: white;
   border-radius: 20px;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 400px) {
@@ -787,6 +796,12 @@ a.py-2:hover {
   hr {
     position: relative;
     top: 10vh;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .name__break {
+    margin-top: -5vh;
   }
 }
 
