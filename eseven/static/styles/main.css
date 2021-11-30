@@ -8,15 +8,15 @@ body {
   background-image: url("/static/styles/liminal.jpeg");
   background-size: cover;
   background-position: center;
-
   height: 100%;
-
   position: relative;
 }
+
 
 @media screen and (max-width: 400px) {
   #test {
     padding: 10px;
+    margin-top: -30vh;
   }
 }
 
@@ -57,21 +57,31 @@ body {
 
 @media (max-width: 400px) {
   #swiper__container {
-    margin-bottom: -50vh;
+    margin-bottom: -20vh;
   }
 }
 
 @media screen and (max-width: 400px) {
   h1#welcome-txt {
-    font-size: 2em;
+    font-size: 3em;
     font-weight: 600;
     color: rgb(255, 101, 150);
-    margin-top: -5vh;
+    margin-top: 20vh;
+    margin-right: .2em;
+    margin-bottom: 2vh;
   }
 }
 
 #welcome-para {
   color: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 400px) {
+  #welcome-para {
+    font-size: 1em;
+    margin-top: -5vh;
+    margin-right: .2em;
+  }
 }
 
 html {
@@ -93,6 +103,7 @@ header {
     rgba(236, 236, 236, 0.25) 84%
   );
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  margin-right: 15px;
 }
 
 @media screen and (max-width: 400px) {
@@ -411,15 +422,17 @@ hr {
     position: relative;
     top: 11vh;
     right: -.5em
+  }
 }
 
 @media screen and (max-width: 400px) {
-  #_quantity{
+  #_quantity {
     width: 39%;
     height: 20%;
     display: flex;
     justify-content: center;
     padding: 0;
+  }
 }
 
 .__cart {
@@ -429,8 +442,10 @@ hr {
   justify-content: space-center;
   padding: 2em;
   margin: -10em;
+  margin-top: -10vh;
   margin-bottom: 20px;
   position: relative;
+  
   /* left: 8rem; */
   text-shadow: 1px 1px 20px rgb(255, 255, 255);
   justify-content: center;
@@ -446,6 +461,7 @@ hr {
     /* left: 8rem; */
     text-shadow: 1px 1px 20px rgb(255, 255, 255);
     justify-content: center;
+  
   }
 }
 
@@ -493,7 +509,7 @@ hr {
     padding: 10px;
     font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 20vh;
+    margin-top: 10vh;
     margin-bottom: 20vh;
     outline-offset: 2px;
     border-radius: 30px;
@@ -515,7 +531,7 @@ hr {
     padding: 10px;
     font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 20vh;
+    margin-top: 10vh;
     margin-bottom: 20vh;
     outline-offset: 2px;
     border-radius: 30px;
@@ -544,7 +560,20 @@ tt {
   outline-offset: 2px;
   justify-content: center;
   border-radius: 30px;
+  
+}
+
+@media screen and (max-width: 400px) {
+  #_plus {
+    margin-top: -5px;
+  margin-left: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  outline-offset: 2px;
+  justify-content: center;
+  border-radius: 30px;
   width: 15%;
+  }
 }
 
 #_minus {
@@ -683,13 +712,29 @@ a.py-2:hover {
 @media screen and (max-width: 400px) {
   #total {
     display: inline-flex;
-    margin-top: 40vh;
+    margin-top: 0vh;
     align-items: center;
     width: 40%;
     height: 50%;
     margin: 3vh auto;
     font-size: 15px;
+    position: relative;
+    top: 10vh;
+    left: 4.3rem;
+    color: #000000!important;
   }
+}
+
+#total {
+  display: inline-flex;
+  margin-top: 0vh;
+  align-items: center;
+  width: 40%;
+  height: 50%;
+  position: relative;
+  left: 38rem;
+  top: 8vh;
+  color: #000000!important;
 }
 
 @media screen and (max-width: 400px) {
@@ -699,4 +744,3 @@ a.py-2:hover {
   }
 }
 
-}}

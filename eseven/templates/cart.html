@@ -9,7 +9,7 @@ class="title mx-5">Your Cart</h1>
 {% endif %}
 
 {% for key,value in request.session.cart.items %}
-<p id="total" class="subtitle text-muted mx-5">Total: $ {{ value.price|multiply:value.quantity }}</p>
+
 <div class="_cart_box">
   <div class="__cart">
     <div class="cart_img_wrap">
@@ -49,8 +49,8 @@ class="title mx-5">Your Cart</h1>
       </div>  
     </div>
   </div>
-
 </div>    
+<p id="total" class="subtitle text-muted mx-5">Total: $ {{ value.price|multiply:value.quantity }}</p>
 {% endfor %}
 {% if request.session.cart|length != 0 %}
 <div class="level-item">
