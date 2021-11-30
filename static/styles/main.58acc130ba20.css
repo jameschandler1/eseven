@@ -5,35 +5,37 @@
 }
 
 body {
-  background-image: url("/static/styles/liminal.jpeg");
+  background-image: url("/static/styles/liminal.6b3194af3ff1.jpeg");
   background-size: cover;
   background-position: center;
   height: 100%;
   position: relative;
 }
 
-@media screen and (max-width: 420px) {
+
+@media screen and (max-width: 400px) {
   #test {
     padding: 10px;
     margin-top: -30vh;
     position: relative;
+    left: 10px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   label {
     font-size: 15px !important;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .container.mx-auto.px-6 {
     margin: -4em;
     padding: 10px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .swiper-wrapper {
     padding-top: 10vh;
     margin: 0 auto;
@@ -63,13 +65,13 @@ body {
   color: rgb(255, 101, 150);
 }
 
-@media (max-width: 420px) {
+@media (max-width: 400px) {
   #swiper__container {
     margin-bottom: -20vh;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   h1#welcome-txt {
     font-size: 3em;
     font-weight: 600;
@@ -83,7 +85,7 @@ body {
   color: rgb(0, 0, 0);
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #welcome-para {
     font-size: 1em;
     margin-top: -5vh;
@@ -92,7 +94,7 @@ body {
 }
 
 html {
-  background-image: url("/static/styles/liminal.jpeg");
+  background-image: url("/static/styles/liminal.6b3194af3ff1.jpeg");
   background-size: cover;
   background-position: center;
   rotate: 180deg;
@@ -113,7 +115,7 @@ header {
   margin-right: 0px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #navbar {
     display: flex;
     flex-direction: row !important;
@@ -130,7 +132,7 @@ header {
   margin-top: 80px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .product-container {
     width: 100%;
     margin: 0 auto;
@@ -148,16 +150,16 @@ header {
   overflow: hidden;
   height: 60%;
   position: relative;
-  
+  left: 8rem;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .image-wrap {
     width: 100%;
     height: 100%;
     overflow: visible;
-    justify-content: center;
-    padding: 0px;
+    left: 6rem;
+    margin-top: 5rem;
   }
 }
 
@@ -169,31 +171,32 @@ header {
   border-radius: 150px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .the__img {
     width: 300px;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
     object-position: center;
     border-radius: 0px;
     position: relative;
-    top: -16vh;
-    left: 6.35rem;
+    right: 1rem;
+    top: -4vh;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #product__name {
-    display: flex;
     font-size: 1rem;
     font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    margin: auto 5.5rem;
+    
+    margin-bottom: 20px;
     background-color: #1d1d1d;
     color: white;
     border-radius: 100px;
+    padding: 12px;
+    text-align: center;
     box-shadow: -1px 2px 0px rgb(0, 0, 0);
+
   }
 }
 
@@ -215,11 +218,11 @@ header {
   text-decoration: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #btn__add {
     position: relative;
     bottom: 0;
-    left: 12rem;
+    left: 0;
     background-color: black;
     color: white;
     border-radius: 20px;
@@ -232,7 +235,7 @@ header {
   position: relative;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .product-info {
     width: 100%;
     margin: -2rem;
@@ -249,7 +252,7 @@ header {
   border-radius: 150px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   img#pp__image {
     border-radius: 0px;
     width: 80%;
@@ -269,7 +272,7 @@ header {
   height: 70vh;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .pp__wrap {
     width: 100%;
     height: 100%;
@@ -301,7 +304,7 @@ header {
   /* filter: invert(100%) */
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #pp__name {
     font-size: 1rem;
     font-weight: bold;
@@ -316,13 +319,13 @@ header {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .pp__wrap {
     width: 100%;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .pp__container {
     margin-bottom: -2vh;
     display: flex;
@@ -399,7 +402,7 @@ hr {
   padding: 10px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   ._item {
     margin-top: -5vh;
     margin-bottom: -5vh;
@@ -407,7 +410,7 @@ hr {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #cart__tilte {
     font-size: 15px !important;
     width: 100%;
@@ -429,7 +432,7 @@ hr {
   border-radius: 0px 0px 20px 20px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .__item_container {
     margin-bottom: -5vh;
     height: 25%;
@@ -444,7 +447,7 @@ hr {
   justify-content: center;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   ._price {
     margin: -2vh;
     width: 100%;
@@ -455,14 +458,13 @@ hr {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #_quantity {
     width: 39%;
     height: 20%;
     display: flex;
     justify-content: center;
     padding: 0;
-    font-size: 18px !important;
   }
 }
 
@@ -482,7 +484,7 @@ hr {
   justify-content: center;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .__cart {
     max-width: 100%;
     padding: 1em;
@@ -505,7 +507,7 @@ hr {
   border-radius: 20px 20px 0px 0px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .cart__image {
     width: 100%;
     height: 60%;
@@ -536,7 +538,7 @@ hr {
   text-decoration: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #__checkout {
     padding: 10px;
     font-size: 1.2rem;
@@ -560,7 +562,7 @@ hr {
   text-decoration: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #clear__cart {
     padding: 10px;
     font-size: 1.2rem;
@@ -598,7 +600,7 @@ tt {
   text-decoration: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #_plus {
     margin-top: -5px;
   margin-left: 5px;
@@ -624,7 +626,7 @@ tt {
   text-decoration: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #_minus {
     margin-top: -5px;
     margin-bottom: 10px;
@@ -700,10 +702,10 @@ a#btn__add {
   margin-left: 12px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   a#btn__add {
     margin: 0;
-    margin-left: -.5rem;
+    margin-left: 1rem;
     font-size: .9rem;
     height: 30px;
     background-color: rgb(255, 190, 190);
@@ -717,74 +719,52 @@ a#btn__add {
   padding: 20px;
 }
 
+@media screen and (max-width: 400px) {
+  h1#product__name.title.product-name {
+    font-size: 1rem !important;
+    margin-bottom: 35vh !important;
+    margin-left: 1rem !important;
+    margin-right: -1rem !important;
+  }
+}
+
 .product-description {
   text-shadow: -1px 1px 0px #000000;
   color: #2b2b2b;
+  margin: 20px;
   font-size: 15px;
   width: 80%;
-  justify-content: center;
-  position: relative;
-  left: 3rem;
-}
-
-@media screen and (max-width: 420px) {
-  .product-description {
-    text-shadow: -1px 1px 0px #000000;
-    color: #2b2b2b;
-    font-size: 15px;
-    width: 80%;
-    justify-content: center;
-    position: relative;
-    left: 9.35rem;
-  }
 }
 
 .product-price {
   text-shadow: -1px 1px 0px #ffffff;
-  margin-top: 20px;
-  position: relative;
-  left: 6rem;
+  margin: 20px;
 }
-
-@media screen and (max-width: 420px) {
-  .product-price {
-    margin-top: 20px;
-    position: relative;
-    left: 13rem;
-  }
-}
-
 
 a.py-2:hover {
   text-shadow: 1px 1px 0px #ffffff;
   color: #ffffff;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   div.product-info {
     width: 100%;
-    margin-top: -12vh;
-    position: relative;
-    right: 2rem;
-    justify-content: center;
-    align-items: center;
+    margin-top: -5vh;
+    justify-content: left;
+    right: 7.75rem;
     
   }
 }
 
-@media screen and (max-width: 420px) {
-  div.product-container {
-    width: 90%;
-    margin-top: 20vh;
-    position: relative;
-    right: 22%;
-    justify-content: center;
-    align-items: center;
+@media screen and (max-width: 400px) {
+  .product-container {
+    width: 100%;
+    margin-top: 10vh;
   }
 }
 
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   #total {
     display: inline-flex;
     margin-top: 0vh;
@@ -812,14 +792,14 @@ a.py-2:hover {
   color: #000000!important;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   hr {
     position: relative;
     top: 10vh;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 400px) {
   .name__break {
     margin-top: -5vh;
   }

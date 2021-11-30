@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'e7vintage.herokuapp.com']
 
-# Application definition
+# Application definition 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    
     'eseven',
     'cart',
     
@@ -92,9 +93,8 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-import django_heroku
-django_heroku.settings(locals())
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# django_heroku.settings(locals())
 
 
 # Password validation
@@ -167,4 +167,4 @@ STRIPE_SECRET_KEY = 'sk_test_51JrqBKLnCPQsAwkmIEeGBAIbpSM7fQrzLXuWvU3O3Lehti1yz0
 
 STRIPE_ENDPOINT_SECRET = 'whsec_dPGtPrDnFYBN0zQpY3ESPmFJCsD2PM4B' 
 
-
+CORS_ALLOW_ORIGIN_ALL = True

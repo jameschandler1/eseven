@@ -38,7 +38,7 @@ def create_checkout_session(request):
         if form.is_valid():
             form.save()
             order.save()
-  
+
         for item in request.session['cart']:
             product = Product.objects.filter(id=item)
             order_item = OrderItem(
