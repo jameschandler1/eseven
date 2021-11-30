@@ -17,6 +17,8 @@ body {
   #test {
     padding: 10px;
     margin-top: -30vh;
+    position: relative;
+    left: 10px;
   }
 }
 
@@ -67,7 +69,6 @@ body {
     font-weight: 600;
     color: rgb(255, 101, 150);
     margin-top: 20vh;
-    margin-right: .2em;
     margin-bottom: 2vh;
   }
 }
@@ -103,7 +104,7 @@ header {
     rgba(236, 236, 236, 0.25) 84%
   );
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
-  margin-right: 15px;
+  margin-right: 0px;
 }
 
 @media screen and (max-width: 400px) {
@@ -177,7 +178,17 @@ header {
 
 @media screen and (max-width: 400px) {
   #product__name {
-    font-size: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    
+    margin-bottom: 20px;
+    background-color: #1d1d1d;
+    color: white;
+    border-radius: 100px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: -1px 2px 0px rgb(0, 0, 0);
+
   }
 }
 
@@ -196,6 +207,19 @@ header {
   background-color: black;
   color: white;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 400px) {
+  #btn__add {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    margin-top: -2vh;
+    text-decoration: none;
+  }
 }
 
 .product-info {
@@ -502,6 +526,7 @@ hr {
   margin-bottom: 20vh;
   outline-offset: 2px;
   border-radius: 30px;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 400px) {
@@ -513,6 +538,7 @@ hr {
     margin-bottom: 20vh;
     outline-offset: 2px;
     border-radius: 30px;
+    text-decoration: none;
   }
 }
 
@@ -524,6 +550,7 @@ hr {
   margin-bottom: 20vh;
   outline-offset: 2px;
   border-radius: 30px;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 400px) {
@@ -535,6 +562,7 @@ hr {
     margin-bottom: 20vh;
     outline-offset: 2px;
     border-radius: 30px;
+    text-decoration: none;
   }
 }
 
@@ -560,19 +588,21 @@ tt {
   outline-offset: 2px;
   justify-content: center;
   border-radius: 30px;
-  
+  text-decoration: none;
 }
 
 @media screen and (max-width: 400px) {
   #_plus {
     margin-top: -5px;
   margin-left: 5px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   outline-offset: 2px;
   justify-content: center;
   border-radius: 30px;
-  width: 15%;
+  width: 12%;
+  text-decoration: none;
+  margin-top: -.2vh;
   }
 }
 
@@ -584,6 +614,22 @@ tt {
   outline-offset: 2px;
   justify-content: center;
   border-radius: 30px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 400px) {
+  #_minus {
+    margin-top: -5px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    outline-offset: 2px;
+    justify-content: center;
+    border-radius: 30px;
+    width: 12%;
+    text-decoration: none;
+    margin-top: -.2vh;
+  }
 }
 
 ._line__item {
