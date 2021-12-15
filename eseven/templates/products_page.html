@@ -2,20 +2,41 @@
 
 {% for p in products %}
 
-<a href="products/{{ p.id }}">
+<div class="container page-wrapper">
+  <div class="page-inner">
+    <div class="row">
+      <div class="el-wrapper">
+        <div class="box-up">
+          <img class="img" src="{{p.image}}" alt="{{p.name}}"/>
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name">{{p.name}}</span>
+            </div>
+            <div class="a-size"> Details 
+              <span class="size">{{p.description}}
+              </span>
+            </div>
+          </div>
+        </div>
 
-  <div class='detail__wrapper'>
-    <div class='detail__container'>
-    <div class='detail__image'>
-      <img src='{{ p.image }}' alt='{{ p.name }}' />
-    </div>
-    
-      <p class='detail__text'>{{ p.name }}</p>
-   
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart" href="{% url 'cart_add' p.id %}">
+            <span class="price">${{p.price}}</span>
+            <span class="add-to-cart">
+                <span class='txt'> 
+                add to cart
+                </span>  
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-
-</a>
+</div>
     
 
 {% endfor %} {% endblock %}
