@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+
+    <div class='cat__con'>
+            <a class='cat__links' href="{% url 'tops' %}">Tops</a>
+            <a class='cat__links' href="{% url 'bottoms' %}">Bottoms</a>
+            <a class='cat__links' href="{% url 'accessories' %}">Accessories</a>
+    </div>
+
+{% endblock %}

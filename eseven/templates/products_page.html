@@ -1,22 +1,23 @@
-{% extends 'base.html' %} {% block content %} {% for p in products %}
+{% extends 'base.html' %} {% block content %}
 
-<div class="pp__container">
-  <div class="container">
-    <div class="level-item">
-        <div class="pp__name_wrap">
-        </div>
-        <figure class="pp__wrap">
-      
-              <h3 id='pp__name' class="title mx-5">{{ p.name }}</h3>
-            
-            <!-- <hr class='name__break'/> -->
-            <a href="products/{{ p.id }}" class="link">
-                <img src="{{ p.image }}" alt="{{ p.name }}" id="pp__image" />
-            </a>
-        </figure>
+{% for p in products %}
+
+<a href="products/{{ p.id }}">
+
+  <div class='detail__wrapper'>
+    <div class='detail__container'>
+    <div class='detail__image'>
+      <img src='{{ p.image }}' alt='{{ p.name }}' />
     </div>
-    <hr class='name__break'/>
+    
+      <p class='detail__text'>{{ p.name }}</p>
+   
+    </div>
   </div>
-</div>
+
+</a>
+    
 
 {% endfor %} {% endblock %}
+
+

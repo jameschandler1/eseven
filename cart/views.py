@@ -38,3 +38,9 @@ def cart_clear(request):
 
 def cart_detail(request):
     return reverse(request, 'cart')
+
+def item_clear(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.remove(product)
+    return redirect("cart")
