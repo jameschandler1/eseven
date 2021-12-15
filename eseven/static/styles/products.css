@@ -1,5 +1,4 @@
-body,
-html {
+body {
   height: 100%;
 }
 
@@ -139,7 +138,7 @@ body {
   /* ease-out */
   width: 660px;
   height: 100%;
-  background-color: #3f96cd;
+  background-color: #e3bbff;
   position: absolute;
   left: -659px;
 }
@@ -147,7 +146,7 @@ body {
 .h-bg .h-bg-inner {
   width: 50%;
   height: 100%;
-  background-color: #464646;
+  background-color: #e8e8e887;
 }
 
 .info-inner {
@@ -294,12 +293,13 @@ html {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .img {
-  overflow: hidden;
+  overflow: auto;
 }
+
 
 ._footer {
   height: 10%;
