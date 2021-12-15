@@ -335,8 +335,6 @@ hr {
 .total__len {
   font-size: 12px !important;
   font-weight: regular;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -421,10 +419,8 @@ hr {
   width: 100%;
   height: auto;
   overflow: auto;
-  border: none;
 }
 
 img {
-  width: 100%;
   height: auto;
 }
