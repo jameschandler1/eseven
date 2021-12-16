@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
 
 body {
   height: 100%;
@@ -174,13 +174,13 @@ body {
 }
 
 .info-inner .p-name {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 18px;
   color: #252525;
 }
 
 .info-inner .p-company {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   color: #8c8c8c;
@@ -200,7 +200,7 @@ body {
   position: absolute;
   width: 100%;
   bottom: -20px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
   color: #828282;
   opacity: 0;
 }
@@ -216,7 +216,7 @@ body {
   height: 100%;
   bottom: 1rem;
   top: 0;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 700;
 
 }
@@ -245,7 +245,7 @@ body {
   transform: translate(-50%, -50%);
   font-size: 16px;
   color: #252525;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 300;
 }
 

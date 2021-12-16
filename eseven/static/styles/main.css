@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
 
 
 * {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 20px;
+  font-family: 'Alegreya Sans SC', sans-serif;
   font-weight: 600;
 }
 
@@ -194,7 +193,7 @@ hr {
 }
 
 .cat__con {
-  width: 95%;
+  width: 100%;
   margin-top: 0;
   display: flex;
   flex-flow: column wrap;
@@ -203,21 +202,31 @@ hr {
 }
 
 .cat__links {
-  justify-content: space-around;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 6vh;
   margin-bottom: 6vh;
-  font-size: 3rem;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  color: rgb(224, 189, 255);
-  text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  border-radius: -100% 100%;
+  font-size: 2rem;
+  background-color: linear-gradient(25deg, rgba(255, 255, 255, 0.0) 4%, rgba(245, 245, 245, 0.2) 46%, rgba(236, 236, 236, 0.45) 84%);
+  box-shadow: 0px 0px 29px rgba(255, 225, 128, 0.5);
+  color: rgba(0, 0, 0, 0.968);
+  text-shadow: 0px 0px 10px rgba(250, 163, 163, 0.7);
   padding: 10px;
+  letter-spacing: 0rem;
+  transition: letter-spacing .15s ease-in-out;
 }
 
-.cat__links a:hover {
+.cat__links:hover {
   transform: scale(1);
-  transition: all 0.3s ease-in-out;
-  color: rgb(255, 101, 150);
+  border-radius: 0% 0%;
+  background-color: linear-gradient(10deg, rgba(255, 255, 255, 0.276) 4%, rgba(245, 245, 245, 0.461) 46%, rgba(236, 236, 236, 0.646) 84%);
+  box-shadow: 0px 0px 10px rgba(255, 171, 171, 0.699);
+  color: rgb(255, 159, 80);;
+  text-shadow: 0px 0px 10px rgba(255, 165, 165, 0.2);
+  padding: 10px;
+  letter-spacing: 1.1rem !important;
 }
 
 
@@ -350,12 +359,12 @@ hr {
   font-size: 12px !important;
 }
 
-#submitBtn.green {
+#submitBtn {
   background-color: rgba(163, 237, 126, 0.495);
   border-right: .001rem solid rgba(0, 0, 0, 0.42);
 }
 
-.green:hover {
+#submitBtn:hover {
   background-color: rgb(168, 244, 131);
 }
 
@@ -424,3 +433,4 @@ hr {
 img {
   height: auto;
 }
+
