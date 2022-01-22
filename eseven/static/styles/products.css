@@ -31,6 +31,7 @@ body {
 }
 
 .page-wrapper {
+  margin-top: 2rem;
   height: 100%;
   display: table;
 }
@@ -38,12 +39,12 @@ body {
 .page-wrapper .page-inner {
   display: table-cell;
   vertical-align: middle;
+  margin-top: -2rem;
 }
 
 .el-wrapper {
   width: 360px;
-  padding: 15px;
-  margin: 1% auto;
+  margin: auto;
   background-color: transparent;
 }
 

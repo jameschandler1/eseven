@@ -6,6 +6,9 @@
   font-weight: 600;
 }
 
+.label {
+  background-color: #f7f7f700;
+}
 
 body {
   display: flex;
@@ -29,6 +32,8 @@ body {
     position: relative;
   }
 }
+
+
 
 @media screen and (max-width: 420px) {
   label {
@@ -111,7 +116,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     0deg,
@@ -120,7 +124,14 @@ header {
     rgba(236, 236, 236, 0.45) 84%
   );
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
-  margin-right: 0px;
+}
+
+header > a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 2em;
+  font-weight: 600;
+  margin-left: 1em;
 }
 
 @media screen and (max-width: 420px) {
