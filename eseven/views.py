@@ -25,12 +25,27 @@ class HomeView(TemplateView):
         context['products'] = Product.objects.all()
         return context
 
-class ProductListView(TemplateView):
+class TopsView(TemplateView):
     template_name = 'products_page.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = Product.objects.all()
+        context['products'] = Product.objects.filter(kind__contains='tops')
+        return context
+    
+class BottomsView(TemplateView):
+    template_name = 'products_page.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.filter(kind__contains='bottoms')
+        return context
+class AccessoriesView(TemplateView):
+    template_name = 'products_page.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.filter(kind__contains='accessories')
         return context
 
 class ProductDetailView(DetailView):
@@ -40,6 +55,14 @@ class ProductDetailView(DetailView):
     def get_image(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['image'] = self.Product.objects.filter('image')
+        return context
+
+class ProductCatListView(TemplateView):
+    template_name = 'product_categories.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.all()
         return context
     
 class CartView(TemplateView):

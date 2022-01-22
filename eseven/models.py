@@ -9,6 +9,7 @@ class Product(models.Model):
     description = models.TextField(max_length=255)
     image = models.CharField(max_length=255)
     price = models.FloatField()
+    kind = models.CharField(max_length=255)
 
 class Link(models.Model):
     code = models.UUIDField(default=uuid.uuid4, unique=True)
